@@ -137,7 +137,7 @@ remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 
 ------
 
-![](pic/2.png) 
+![](pic/1.png) 
 
 ## Задача 2
 
