@@ -18,8 +18,9 @@
 ## Ответ:
 Файлы:  
 - [count-vm.tf](03/src/count-vm.tf)  
-- [for_each-vm.tf](/assets//terraform-03-control-structures/src/for_each-vm.tf)  
-- [locals.tf](/assets//terraform-03-control-structures/src/locals.tf)
+- [for_each-vm.tf](03/src/for_each-vm.tf)  
+- [locals.tf](03/src/locals.tf)
+
 Скриншот:
 ![](pic/2.png) 
 
