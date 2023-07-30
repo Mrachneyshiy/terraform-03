@@ -55,7 +55,7 @@
 - [hosts.tftpl](03/src/hosts.tftpl)
 
 Скриншоты:
-------
+
 ![](pic/5.png) 
 ------
 ![](pic/6.png) 
