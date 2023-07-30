@@ -21,7 +21,7 @@
 - [for_each-vm.tf](03/src/for_each-vm.tf)  
 - [locals.tf](03/src/locals.tf)
 
-Скриншот:
+Скриншоты:
 ![](pic/2.png) 
 
 ## Задача 3
@@ -30,6 +30,10 @@
 2. Создайте в том же файле одну ВМ c именем "storage" . Используйте блок **dynamic secondary_disk{..}** и мета-аргумент for_each для подключения созданных вами дополнительных дисков.
 
 ## Ответ:
+Файлы:  
+- [disk_vm.tf](03/src/disk_vm.tf)  
+
+Скриншоты:
 ![](pic/3.png) 
 ------
 ![](pic/4.png) 
@@ -43,6 +47,12 @@
 4. Выполните код. Приложите скриншот получившегося файла. 
 
 ## Ответ:
+Файлы:  
+- [ansible.tf](03/src/ansible.tf)  
+- [hosts.cfg](03/src/hosts.cfg)
+- [hosts.tftpl](03/src/hosts.tftpl)
+
+Скриншоты:
 ![](pic/5.png) 
 ------
 ![](pic/6.png) 
