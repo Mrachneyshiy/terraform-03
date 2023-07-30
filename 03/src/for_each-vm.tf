@@ -25,7 +25,6 @@ resource "yandex_compute_instance" "frontend" {
   metadata = local.ssh_keys_and_serial_port
 
   depends_on = [
-    yandex_compute_instance.backend
-  ]
+    yandex_compute_instance.backend]
 
 }

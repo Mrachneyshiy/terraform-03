@@ -16,93 +16,11 @@
 
 
 ## Ответ:
-<details>
-<summary>count-vm.tf</summary>
-
-``` sh
-resource "yandex_compute_instance" "backend" {
-  count       = 2
-  name        = "web-${count.index + 1}"
-  platform_id = "standard-v1"
-  resources {
-    cores         = var.vm_base.cores
-    memory        = var.vm_base.memory
-    core_fraction = var.vm_base.core_fraction
-  }
-  boot_disk {
-    initialize_params {
-      image_id = data.yandex_compute_image.ubuntu.image_id
-    }
-  }
-  scheduling_policy {
-    preemptible = true
-  }
-  network_interface {
-    subnet_id = yandex_vpc_subnet.develop.id
-    nat       = true
-  }
-  metadata = local.ssh_keys_and_serial_port
-
-}
-``` 
-</details>
-
-<details>
-<summary>for_each-vm.tf</summary>
-
-``` sh
-rresource "yandex_compute_instance" "frontend" {
-
-  for_each = local.virtual_machines
-
-  name        = each.value.vm_name
-  platform_id = "standard-v1"
-  resources {
-    cores         = each.value.vm_cpu
-    memory        = each.value.vm_ram
-    core_fraction = each.value.vm_core_fraction
-  }
-  boot_disk {
-    initialize_params {
-      image_id = data.yandex_compute_image.ubuntu.image_id
-      size     = each.value.vm_disk_size
-    }
-  }
-  scheduling_policy {
-    preemptible = true
-  }
-  network_interface {
-    subnet_id = yandex_vpc_subnet.develop.id
-    nat       = true
-  }
-  metadata = local.ssh_keys_and_serial_port
-
-  depends_on = [
-    yandex_compute_instance.backend
-  ]
-
-}
-``` 
-</details>
-
-<details>
-<summary>locals.tf</summary>
-
-``` sh
-locals {
-  virtual_machines = {
-    "vm1" = { vm_name = "main", vm_cpu = 2, vm_ram = 1, vm_disk_size = 10, vm_core_fraction = 5 },
-    "vm2" = { vm_name = "replica", vm_cpu = 2, vm_ram = 1, vm_disk_size = 15, vm_core_fraction = 20 }
-  }
-
-  ssh_keys_and_serial_port = {
-    ssh-keys           = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
-    serial-port-enable = 1
-  }
-}
-``` 
-</details>
-
+Файлы:  
+- [count-vm.tf](03/src/count-vm.tf)  
+- [for_each-vm.tf](/assets//terraform-03-control-structures/src/for_each-vm.tf)  
+- [locals.tf](/assets//terraform-03-control-structures/src/locals.tf)
+Скриншот:
 ![](pic/2.png) 
 
 ## Задача 3
